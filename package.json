@@ -1,0 +1,15 @@
+{
+  "name": "fsm",
+  "version": "1.0.0",
+  "description": "有限状态机",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "fsm",
+    "js"
+  ],
+  "author": "wing <ran_ning@126.com>",
+  "license": "ISC"
+}
