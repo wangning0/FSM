@@ -2,7 +2,7 @@
  * @author winger
  */
 ;(function(root) {
-    var fsm = function(stateObjects, initialStateName) {
+    const FSM = function(stateObjects, initialStateName) {
 
         const toString = Object.prototype.toString;
 
@@ -37,13 +37,13 @@
         }
         const stateMachine = {
             getCurrentState: stateStore.getCurrentState,
-            bind: (callback) => {
+            bind: function (callback) {
                 if(callback) {
                     broadcast.push(callback);
                 }
                 return this;
             },
-            unbind: (callback) => {
+            unbind: function (callback) {
                 if(!callback) {
                     broadcast = [];
                 } else {
@@ -127,13 +127,15 @@
         return stateMachine;
     }
 
-    fsm.machine = (stateObjects, initialStateName) => new fsm(stateObjects, initialStateName);
+    FSM.machine = (stateObjects, initialStateName) => {
+        return new FSM(stateObjects, initialStateName)
+    };
 
     if(typeof define === 'function' && define.amd) {
-        define(fsm);
+        define(FSM);
     } else if(typeof module !== 'undefined' && module.exports) {
-        module.exports = fsm;
+        module.exports = FSM;
     } else {
-        root.fsm = fsm;
+        root.FSM = FSM;
     }
 })(this);
